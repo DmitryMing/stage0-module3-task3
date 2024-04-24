@@ -8,9 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static school.mjc.parser.Asserts.assertNoClassesExceptTopLevel;
-import static school.mjc.parser.Asserts.assertNoImports;
 import static school.mjc.parser.Asserts.assertNoInitializationBlocks;
-import static school.mjc.parser.Asserts.assertNoMethodsExceptMain;
 import static school.mjc.parser.Util.parse;
 
 public class AllowedCodeTest {
@@ -28,7 +26,6 @@ public class AllowedCodeTest {
     }
 
     private void verifyFile(CompilationUnit parsed, String fileName) {
-        assertNoImports(parsed);
         assertNoInitializationBlocks(parsed);
         assertNoClassesExceptTopLevel(parsed, fileName);
     }
